@@ -1,0 +1,44 @@
+.menu {
+  font-family: Helvetica Neue,Verdana,Arial,Hiragino Sans GB,WenQuanYi Micro Hei,Heiti SC,STHeiti,Microsoft Yahei,SimSun,sans-serif;
+	font-size: 16px;
+}
+.menu-list {
+  display: block;
+  margin: 0px;
+  padding: 0 10px;
+  background: #505050;
+}
+.menu-item {
+  list-style-type: none;
+  border-top: 1px dotted #fff;
+  a {
+    display: inline-block;
+    height: 57px;
+    line-height: 57px;
+    white-space: nowrap;//待彻底搞清楚它的用法
+    cursor: pointer;
+    text-decoration: none;
+    color:#fff;
+  }
+
+  &.hide {
+    display: none;
+  }
+}
+
+@mixin down-triangle() { //使用CSSModules加载scss，混合器必须在调用前声明
+  border-top: 8px solid #fff;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+}
+
+.menu-item:first-child {
+  border-top:none;
+  a:after {
+    content:'';
+    display:inline-block;
+    margin-left:10px;
+    @include down-triangle();
+  }
+}
+
