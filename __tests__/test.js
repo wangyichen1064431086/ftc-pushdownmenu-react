@@ -1,4 +1,5 @@
-jest.unmock('../src/js/Login');//指示模块系统不应从require（）返回指定模块的模拟版本（例如，它应始终返回实模块）。
+jest.unmock('../src/js/PushdownMenu');//指示模块系统不应从require（）返回指定模块的模拟版本（例如，它应始终返回实模块）。
+
 
 //jest会自动mock模拟依赖包，所以真实的要测试的文件要unmock
 
@@ -6,7 +7,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import ReactTestUtils from 'react-dom/test-utils';
 
-import Login from '../src/js/Login.js';
+import {PushdownMenu, PushdownItem} from '../src/js/PushdownMenu.js';
 
 describe('Build a Pushdown Menu', () => {
   it('render', () => {
