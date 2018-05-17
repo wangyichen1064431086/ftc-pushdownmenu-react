@@ -44,6 +44,14 @@ class PushdownMenu extends React.Component {
         findSelected = true;
       }
     });
+    if(!findSelected) {//每个item都没有提供selected={true}，那么默认第一个为selected
+      firstItem = React.cloneElement(lists[0], {
+        selected: true,
+        handleClick: this.clickToPushdownOrShrink,
+        key: list.props.name,
+        className:'menu-item'
+      });
+    }
     console.log(firstItem);
    
     const otherItems = React.Children.map(lists, list => {

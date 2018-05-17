@@ -5,10 +5,10 @@ import replace from 'rollup-plugin-replace';
 import postcss from 'rollup-plugin-postcss';
 
 export default {
-  input: './src/js/Login.js',
+  input: './src/js/PushdownMenu.js',
   output:[
     {
-      name:'FtcLogin',
+      name:'PushdownMenu',
       sourcemap: true,
       
       globals:{
@@ -21,7 +21,7 @@ export default {
       
     },
     {
-      name:'FtcLogin',
+      name:'PushdownMenu',
       sourcemap: true,
       
       globals:{

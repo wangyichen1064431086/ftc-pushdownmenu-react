@@ -9,7 +9,7 @@ import ReactTestUtils from 'react-dom/test-utils';
 
 import {PushdownMenu, PushdownItem} from '../src/js/PushdownMenu.js';
 
-describe('Build a Pushdown Menu', () => {
+describe('Build a Pushdown Menu with first child explicitly selected', () => {
   it('render', () => {
     const pushdownMenu = ReactTestUtils.renderIntoDocument(
       <PushdownMenu>
@@ -52,3 +52,5 @@ describe('Build a Pushdown Menu', () => {
   });
 
 });
+
+//TODO: Build a Pushdown Menu with no child explicitly selected.效果应该同上。
