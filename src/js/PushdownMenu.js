@@ -18,15 +18,17 @@ class PushdownMenu extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      pushdown: false,
+      showPushdown: false,
     };
-    this.handleClick = this.handleClick.bind(this);
+    this.clickToPushdownOrShrink = this.clickToPushdownOrShrink.bind(this);
   }
 
-  handleClick() {
+  clickToPushdownOrShrink() {
+    console.log('click');
     this.setState(prevState => {
-      pushdown: !prevState.pushdown
-    })
+      return{
+      showPushdown: !prevState.showPushdown //这里一定要在{}外再加一层()，是表示返回的意思
+    }});
   }
   renderList() {
     const lists = this.props.children;
@@ -35,8 +37,9 @@ class PushdownMenu extends React.Component {
     React.Children.forEach(lists, list => {
       if (!findSelected && list.props.selected) {
         firstItem = React.cloneElement(list, {
-          handleClick: this.handleClick,
-          key: list.props.name
+          handleClick: this.clickToPushdownOrShrink,
+          key: list.props.name,
+          className:'menu-item'
         });
         findSelected = true;
       }
@@ -51,19 +54,20 @@ class PushdownMenu extends React.Component {
           selected:false,
           handleClick: null,
           key: list.props.name,
-          styleName: classnames({
-            [list.props.styleName]: true, 
-            'hide':!this.state.pushdown
+          className: classnames({
+            "menu-item":true,
+            "hide": !this.state.showPushdown
           })
         })
       }
     });
+    console.log(this.state.showPushdown);
     console.log(otherItems);
 
     return (
-      <ul className = "menu-list">
+      <ul styleName = "menu-list">
         { firstItem }
-        { /*otherItems*/ }
+        { otherItems }
       </ul>
     )
   }
@@ -76,29 +80,31 @@ class PushdownMenu extends React.Component {
   }
 }
 
+@CSSModules(pushdownmenu, {allowMultiple:true})
 class PushdownItem extends React.Component {
   static propTypes = {
     name: PropTypes.string.isRequired,
     url: PropTypes.string.isRequired,
     selected: PropTypes.bool.isRequired,
-    handleClick: PropTypes.func
+    handleClick: PropTypes.func,
   }
 
   static defaultProps = {
     selected: true, //父元素传递进来的selected可以把默认selected覆盖
-    handleClick: null,
+    className:"menu-item",
     url:"#"
   }
   constructor(props) {
     super(props);
   }
   render() {
-    const {name, url, selected, handleClick} = this.props;
+    const {name, url, selected, handleClick, className} = this.props;
 
-    const realHandleClick = (handleClick && selected) ? handleClick : null; //只有同时满足handleClick不为null且selected为true，才绑定handleClick
+    //const realHandleClick = (handleClick && selected) ? handleClick : null; //只有同时满足handleClick不为null且selected为true，才绑定handleClick
+
     return (
-      <li styleName = "menu-item" onClick={handleClick}>
-        <a href={url}>
+      <li styleName={className} onClick={handleClick}>
+        <a href={url} >
           {name}
         </a>
       </li>

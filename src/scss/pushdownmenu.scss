@@ -1,12 +1,14 @@
 .menu {
   font-family: Helvetica Neue,Verdana,Arial,Hiragino Sans GB,WenQuanYi Micro Hei,Heiti SC,STHeiti,Microsoft Yahei,SimSun,sans-serif;
-	font-size: 16px;
+  font-size: 16px;
+  background: #505050;
+  width:120px;
 }
 .menu-list {
   display: block;
   margin: 0px;
   padding: 0 10px;
-  background: #505050;
+  
 }
 .menu-item {
   list-style-type: none;
