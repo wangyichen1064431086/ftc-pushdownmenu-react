@@ -34,6 +34,22 @@ ReactDOM.render(
 #### children
 Must be a or an array of PushdownItem
 
+#### className
+An additional style for the component. For example, if you want to hide it by other component, you may write like this:
+
+jsx:
+```
+<PushdownMenu className="hide">
+...
+</PushdownMenu>
+```
+
+scss:
+```
+.hide {
+  display:none;
+}
+```
 ###  Props of PushdownItem
 
 #### name
