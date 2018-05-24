@@ -24,7 +24,6 @@ class PushdownMenu extends React.Component {
   }
 
   clickToPushdownOrShrink() {
-    console.log('click');
     this.setState(prevState => {
       return{
       showPushdown: !prevState.showPushdown //这里一定要在{}外再加一层()，是表示返回的意思
@@ -52,7 +51,6 @@ class PushdownMenu extends React.Component {
         className:'menu-item'
       });
     }
-    console.log(firstItem);
    
     const otherItems = React.Children.map(lists, list => {
       if (list.props.name === firstItem.props.name) {
@@ -69,8 +67,6 @@ class PushdownMenu extends React.Component {
         })
       }
     });
-    console.log(this.state.showPushdown);
-    console.log(otherItems);
 
     return (
       <ul styleName = "menu-list">
@@ -81,12 +77,8 @@ class PushdownMenu extends React.Component {
   }
   render() {
     const {className} = this.props;
-    const style = classnames({
-      "menu": true,
-      [className]:true
-    });
-    console.log('style:');
-    console.log(style);
+    const style = classnames("menu", className); //classnames这样写可以直接忽略为undefined的值
+
     return (
       <div styleName = {style} >
         {this.renderList()}
