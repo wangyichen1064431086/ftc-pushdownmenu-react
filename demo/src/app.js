@@ -1,5 +1,5 @@
-//import {PushdownMenu, PushdownItem} from '../../src/js/PushdownMenu';
-import {PushdownMenu, PushdownItem} from '../../build/index.es.js';
+import {PushdownMenu, PushdownItem} from '../../src/js/PushdownMenu';
+//import {PushdownMenu, PushdownItem} from '../../build/index.es.js';
 import React from 'react';
 import ReactDOM from 'react-dom';
 

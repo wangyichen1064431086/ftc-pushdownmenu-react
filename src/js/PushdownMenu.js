@@ -80,8 +80,15 @@ class PushdownMenu extends React.Component {
     )
   }
   render() {
+    const {className} = this.props;
+    const style = classnames({
+      "menu": true,
+      [className]:true
+    });
+    console.log('style:');
+    console.log(style);
     return (
-      <div styleName = "menu" >
+      <div styleName = {style} >
         {this.renderList()}
       </div>
     )
