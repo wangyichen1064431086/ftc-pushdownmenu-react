@@ -76,9 +76,11 @@ class PushdownMenu extends React.Component {
     )
   }
   render() {
-    const {className} = this.props;
-    const style = classnames("menu", className); //classnames这样写可以直接忽略为undefined的值
-
+    const {showPushdown} = this.state;
+    const style = classnames({
+      "menu": true,
+      "pushdown": showPushdown
+    });
     return (
       <div styleName = {style} >
         {this.renderList()}
