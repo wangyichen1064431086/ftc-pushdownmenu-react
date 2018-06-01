@@ -23,7 +23,8 @@ class PushdownMenu extends React.Component {
     this.clickToPushdownOrShrink = this.clickToPushdownOrShrink.bind(this);
   }
 
-  clickToPushdownOrShrink() {
+  clickToPushdownOrShrink(e) {
+    e.preventDefault();
     this.setState(prevState => {
       return{
       showPushdown: !prevState.showPushdown //这里一定要在{}外再加一层()，是表示返回的意思
