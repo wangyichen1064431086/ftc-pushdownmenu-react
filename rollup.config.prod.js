@@ -3,17 +3,22 @@ import resolve from 'rollup-plugin-node-resolve';
 import commonjs from 'rollup-plugin-commonjs';
 import replace from 'rollup-plugin-replace';
 import postcss from 'rollup-plugin-postcss';
+import minify from 'rollup-plugin-minify-es';
+import cssdiscardcomments from 'postcss-discard-comments';
 
 export default {
   input: './src/js/PushdownMenu.js',
   output:[
     {
-      name:'PushdownMenu',
+      name:'FtcPushdownMenu',
       sourcemap: true,
       
       globals:{
         react: 'React',
-        'react-dom': 'ReactDOM'
+        'react-dom': 'ReactDOM',
+        'prop-types':'PropTypes',
+        'classnames':'classnames',
+        'react-css-modules':'CSSModules'
       },
       
       file: './build/index.js',
@@ -21,14 +26,7 @@ export default {
       
     },
     {
-      name:'PushdownMenu',
       sourcemap: true,
-      
-      globals:{
-        react: 'React',
-        'react-dom': 'ReactDOM'
-      },
-      
       file: './build/index.es.js',
       format: 'es'
     },
@@ -38,31 +36,26 @@ export default {
   plugins: [
     
     postcss({
-      modules: true
+      modules: true,
+      plugins: [
+        cssdiscardcomments()
+      ]
     }),
     
     babel({
       exclude: 'node_modules/**'
     }),
-    /*
-    replace({
-      'process.env.NODE_ENV': JSON.stringify('development')
-    }),
-    */
     resolve({
       jsnext: true,
       main:true
     }),
-    commonjs({
-      /*
-      namedExports: {
-        'node_modules/immutable/dist/immutable.js':['Seq']
+    commonjs(),
+    minify({
+      compress: {
+        drop_console:true
       }
-      */
     })
   ],
 
-  //external: ['react', 'react-dom'],
-
-  
+  external: ['react', 'react-dom','prop-types','classnames','react-css-modules']
 }
