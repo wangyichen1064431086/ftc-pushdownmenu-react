@@ -1,6 +1,6 @@
 {
   "name": "@ftchinese/ftc-pushdownmenu-react",
-  "version": "1.3.2",
+  "version": "1.3.3",
   "description": "The pushdown menu for language selection partial of ftc-header. It is the react version.",
   "main": "build/index.js",
   "module": "build/index.es.js",
