@@ -6,7 +6,8 @@
 The pushdown menu component for FTC. React version. It is a part of  ftc-header-react.
 
 ## Install
-```
+
+```cmd
 cd yourProject
 npm install react react-dom prop-types
 npm install "@ftchinese/ftc-pushdownmenu-react" --save 
@@ -14,7 +15,8 @@ npm install "@ftchinese/ftc-pushdownmenu-react" --save
 
 ## Usage
 Example:
-```
+
+```js
 import {PushdownMenu, PushdownItem} from '@ftchinese/ftc-pushdownmenu-react';
 import React from 'react';
 import ReactDOM from 'react-dom';
