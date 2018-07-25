@@ -94,7 +94,7 @@ class PushdownMenu extends React.Component {
 class PushdownItem extends React.Component {
   static propTypes = {
     name: PropTypes.string.isRequired,
-    url: PropTypes.string.isRequired,
+    url: PropTypes.string,
     selected: PropTypes.bool.isRequired,
     handleClick: PropTypes.func,
   }

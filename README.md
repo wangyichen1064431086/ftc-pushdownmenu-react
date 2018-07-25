@@ -37,11 +37,11 @@ Must be a or an array of PushdownItem
 ###  Props of PushdownItem
 
 #### name
-Type string. The name of the list item.
+Type string. Required. The name of the list item.
 
 #### url
-Type string. The url site to which you jump when clicking the list item.
+Type string. Optional. Default '#'. The url site to which you jump when clicking the list item.
 
 
 #### selected
-Type boolean. Decide the item is shown or not when the pushdown menu is shrinked. That's to say, the item with prop selected = {true} will be shown on the top of the menu, and it is only shown when the menu is shrinked.
+Type boolean. Required. Decide the item is shown or not when the pushdown menu is shrinked. That's to say, the item with prop selected = {true} will be shown on the top of the menu, and it is only shown when the menu is shrinked.
